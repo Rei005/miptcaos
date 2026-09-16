@@ -55,7 +55,7 @@ git push origin main
 
 ## Quizzes
 
-
+Quiz 1
 
 ## Результаты обучения
 
