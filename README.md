@@ -55,7 +55,7 @@ git push origin main
 
 ## Quizzes
 
-Quiz 1
+[Quiz 1 (23:59 16 октября 2026 года)](https://forms.gle/Aoo61yMoQTFwqnZP7)
 
 ## Результаты обучения
 
