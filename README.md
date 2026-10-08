@@ -53,6 +53,8 @@ git push origin main
 
 ### [Задание 1. Системы счисления и представление чисел в компьютере (23:59 23 сентября 2026 года)](hw/lab01/README.md)
 
+### Задание 2. Make. CMake. Bash
+
 ## Quizzes
 
 [Quiz 1 (23:59 16 октября 2026 года)](https://forms.gle/Aoo61yMoQTFwqnZP7)
