@@ -7,12 +7,13 @@ on:
     branches: [ "main", "master" ]
 
 jobs:
-  test:
+  lab02-separate-compilation:
+    name: "Lab 02: 01 – Separate Compilation"
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -21,10 +22,43 @@ jobs:
 
       - name: Install dependencies
         run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential
           python -m pip install --upgrade pip
           pip install pytest
 
-      - name: Run Pytest on all tasks
+      - name: Build
+        working-directory: hw/lab02/01_separate_compilation
+        run: make
+
+      - name: Test
+        working-directory: hw/lab02/01_separate_compilation
+        run: pytest tests -v
+
+  lab02-auto-deps:
+    name: "Lab 02: 02 – Auto Sources & Dependencies"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
         run: |
-          # Поиск всех папок tests в директориях hw/ и запуск pytest
-          pytest $(find hw/ -type d -name "tests") -v
+          sudo apt-get update
+          sudo apt-get install -y build-essential
+          python -m pip install --upgrade pip
+          pip install pytest
+
+      - name: Build
+        working-directory: hw/lab02/02_auto_deps
+        run: make
+
+      - name: Test
+        working-directory: hw/lab02/02_auto_deps
+        run: pytest tests -v

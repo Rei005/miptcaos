@@ -13,7 +13,6 @@
 
 ## ⚙️ Быстрая сборка и тесты
 ```bash
-cd 01_separate_compilation
 make                                  # собрать программу
 ./calculator                          # запустить
 pytest tests                          # запустить тесты
