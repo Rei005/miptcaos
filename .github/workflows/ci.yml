@@ -62,3 +62,35 @@ jobs:
       - name: Test
         working-directory: hw/lab02/02_auto_deps
         run: pytest tests -v
+
+  lab02-debug-release:
+    name: "Lab 02: 03 – Debug & Release Configurations"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential
+          python -m pip install --upgrade pip
+          pip install pytest
+
+      - name: Build (Release)
+        working-directory: hw/lab02/03_debug_release
+        run: make MODE=release
+
+      - name: Build (Debug)
+        working-directory: hw/lab02/03_debug_release
+        run: make MODE=debug
+
+      - name: Test
+        working-directory: hw/lab02/03_debug_release
+        run: pytest tests -v
