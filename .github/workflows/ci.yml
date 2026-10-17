@@ -94,6 +94,7 @@ jobs:
       - name: Test
         working-directory: hw/lab02/03_debug_release
         run: pytest tests -v
+
   lab02-cmake-flags-version:
     name: "Lab 02: 04 – CMake Flags & Version"
     runs-on: ubuntu-latest
@@ -116,4 +117,28 @@ jobs:
 
       - name: Build & Test
         working-directory: hw/lab02/04_cmake_flags_version
+        run: pytest tests -v
+
+  lab02-googletest:
+    name: "Lab 02: 05 – GoogleTest Integration"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential cmake
+          python -m pip install --upgrade pip
+          pip install pytest
+
+      - name: Build & Test
+        working-directory: hw/lab02/05_googletest
         run: pytest tests -v

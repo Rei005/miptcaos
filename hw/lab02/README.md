@@ -21,3 +21,5 @@
 [3. Поддержка конфигураций Debug и Release](./03_debug_release/README.md)
 
 [4. Управление флагами компиляции и вычисление версии проекта](./04_cmake_flags_version/README.md)
+
+[5. Создание и подключение GoogleTest для unit-тестирования](./05_googletest/README.md)
